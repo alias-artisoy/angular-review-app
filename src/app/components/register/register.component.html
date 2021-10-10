@@ -1,0 +1,29 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card style="text-align: center;">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password">
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <button mat-raised-button routerLink="/signin" routerLinkActive="activeBtnLink" style="margin-right:5px;">Login</button>
+            <button mat-raised-button routerLink="/register" routerLinkActive="activeBtnLink">Register</button>
+
+        </form>
+    </mat-card>
+</div>
