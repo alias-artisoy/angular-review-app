@@ -4,18 +4,28 @@
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
 
-        <form class="example-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()" class="example-form">
             <mat-card-content>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username" type="text">
+                    <label>
+                        <input matInput placeholder="Username" type="text" formControlName="username" [errorStateMatcher]="matcher">
+                    </label>
+                    <mat-error *ngIf="loginForm.hasError('required', 'username')">
+                        <span *ngIf="loginForm.get('username').valid && loginForm.get('username').touched">Please enter Username</span>
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password" type="password">
+                    <label>
+                        <input matInput placeholder="Password" type="password" formControlName="password" [errorStateMatcher]="matcher">
+                    </label>
+                    <mat-error *ngIf="loginForm.hasError('required', 'password')">
+                        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter Password</span>
+                    </mat-error>
                 </mat-form-field>
             </mat-card-content>
 
-            <button mat-raised-button routerLink="/signin" routerLinkActive="activeBtnLink" style="margin-right:5px;">Login</button>
+            <button type="submit" [disabled]="!loginForm.valid" mat-raised-button routerLink="/signin" routerLinkActive="activeBtnLink" style="margin-right:5px;">Login</button>
             <button mat-raised-button routerLink="/register" routerLinkActive="activeBtnLink">Register</button>
         </form>
     </mat-card>

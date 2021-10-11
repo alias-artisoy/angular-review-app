@@ -9,12 +9,18 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RegisterComponent } from './components/register/register.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
+import { SecureComponent } from './components/secure/secure.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    SigninComponent
+    SigninComponent,
+    SecureComponent,
+    NotFoundComponent
   ],
   imports: [
     AngularMaterialModule,
@@ -23,9 +29,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
