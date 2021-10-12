@@ -3,10 +3,11 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
+import { environment } from './../environments/environment';
 
-const OAUTH_CLIENT = 'angular-review-app-client';
-const OAUTH_SECRET = 'angular-review-app-secret';
-const API_URL = 'http://localhost:8080/';
+const OAUTH_CLIENT = environment.OAUTH_CLIENT;
+const OAUTH_SECRET = environment.OAUTH_SECRET;
+const API_URL = environment.API_URL;
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
