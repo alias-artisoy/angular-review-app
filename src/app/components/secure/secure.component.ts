@@ -16,12 +16,6 @@ export class SecureComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoadingResults = true;
-    this.authService.secured()
-      .subscribe((data: any) => {
-        this.message = data;
-        console.log(data);
-        this.isLoadingResults = false;
-      });
   }
 
   logout(): void {

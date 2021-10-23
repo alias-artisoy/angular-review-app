@@ -13,6 +13,14 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import { SecureComponent } from './components/secure/secure.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     RegisterComponent,
     SigninComponent,
     SecureComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavComponent,
+    DashboardComponent
   ],
   imports: [
     AngularMaterialModule,
@@ -30,7 +40,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     {
